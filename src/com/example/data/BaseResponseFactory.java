@@ -9,17 +9,17 @@ import android.util.Xml;
 
 public abstract class BaseResponseFactory
 {
-	protected String mText;			TEXT時にテキストを退避しておく変数
-	
+	protected String mText;			//TEXT時にテキストを退避しておく変数
+
 	public BaseData create(String strResponse)
 	{
 		//XML文字列を解析
 		parse(strResponse);
-		
+
 		//結果を返す
 		return getResponse();
 	}
-	
+
 	private void parse(String strResponse)
 	{
 		if(strResponse != null && strResponse.length() > 0)
@@ -28,7 +28,7 @@ public abstract class BaseResponseFactory
 			{
 				XmlPullParser parser = Xml.newPullParser();
 				parser.setInput(new StringReader(strResponse));
-				
+
 				int parseType;
 				while((parseType = parser.next()) != XmlPullParser.END_DOCUMENT)
 				{
@@ -37,15 +37,15 @@ public abstract class BaseResponseFactory
 					case XmlPullParser.START_TAG:
 						onStartTag(parser);
 						break;
-						
+
 					case XmlPullParser.TEXT:
 						mText = parser.getText();
 						break;
-						
+
 					case XmlPullParser.END_TAG:
 						onEndTag(parser);
 						break;
-						
+
 					}
 				}
 			}
@@ -55,7 +55,7 @@ public abstract class BaseResponseFactory
 			}
 		}
 	}
-	
+
 	//型変換などに利用するメソッド
 	protected int convertInt(String strValue)
 	{
@@ -84,7 +84,7 @@ public abstract class BaseResponseFactory
 		}
 		return dRet;
 	}
-	
+
 	protected String getAttribute(XmlPullParser parser, String strName)
 	{
 		String strRet = null;
@@ -97,7 +97,7 @@ public abstract class BaseResponseFactory
 		}
 		return strRet;
 	}
-	
+
 	//以下のクラスを子クラスに実装してもらう。
 	protected abstract void onStartTag(XmlPullParser parser) throws Exception;
 	protected abstract void onEndTag(XmlPullParser parser);

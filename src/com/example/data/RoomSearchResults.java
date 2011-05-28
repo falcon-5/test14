@@ -1,18 +1,21 @@
 package com.example.data;
 
+import java.util.ArrayList;
+
 public class RoomSearchResults extends BaseData
 {
 	private int numberOfResults;	//該当件数
 	private int displayPerPage;		//表示件数
 	private int displayFrom;		//表示From
 	private String apiVersion;		//APIバージョン
-	private Plan plan;
-	
+//	private Plan plan;
+	private ArrayList<Plan> plan;
+
 	public int getNumberOfResults()
 	{
 		return numberOfResults;
 	}
-	
+
 	public void setNumberOfResults(int numberOfResults)
 	{
 		this.numberOfResults = numberOfResults;
@@ -20,14 +23,14 @@ public class RoomSearchResults extends BaseData
 
 	public int getDisplayPerPage()
 	{
-		return displayPerPage; 
+		return displayPerPage;
 	}
-	
+
 	public void setDisplayPerPage(int displayPerPage)
 	{
 		this.displayPerPage = displayPerPage;
 	}
-	
+
 	public int getDisplayFrom()
 	{
 		return displayFrom;
@@ -48,11 +51,11 @@ public class RoomSearchResults extends BaseData
 		this.apiVersion = apiVersion;
 	}
 
-	public Plan getPlan() {
+	public ArrayList<Plan> getPlan() {
 		return plan;
 	}
 
-	public void setPlan(Plan plan) {
+	public void setPlan(ArrayList<Plan> plan) {
 		this.plan = plan;
 	}
 
