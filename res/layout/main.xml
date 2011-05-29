@@ -4,9 +4,49 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+    <RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:id="@+id/relativeLayout01"
+		>
+        <Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:id="@+id/btnPrev"
+			android:text="@string/btnPrev"
+			/>
+        <Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:id="@+id/btnNext"
+			android:text="@string/btnNext"
+			/>
+        <TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/txtPage"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			android:text="@string/noRecieve"
+			/>
+    </RelativeLayout>
+    <RelativeLayout
+    	android:id="@+id/RelativeLayout02"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	>
+    	<TextView
+    		android:id="@+id/android:empty"
+    		android:layout_width="wrap_content"
+    		android:layout_height="fill_parent"
+    		android:gravity="center"
+    		android:text="@string/txtEmpty"
+    		/>
+    	<ListView
+    		android:id="@+id/android:list"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		/>
+    </RelativeLayout>
 </LinearLayout>

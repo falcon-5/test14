@@ -15,38 +15,38 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-public class HttpSeverIF
+public class HttpServerIF
 {
 	public static final int UNKNOWN_HOST = -1;
 	private static final String LOG_TAG = "HttpServerIF";
-	
+
 	private Bitmap resBitmap;
 	private String resText;
-	
+
 	public Bitmap getResBitmap()
 	{
 		return resBitmap;
 	}
-	
+
 	public String getResText()
 	{
 		return resText;
 	}
-	
+
 	public int requestText(String url)
 	{
 		int iRet = UNKNOWN_HOST;
 		resText = "";
-		
+
 		log(url);
-		
+
 		//引数に記述されたURLに対してGET METHODでのリクエストを送信する。
 		HttpClient client = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(url);
 
 		HttpResponse res = null;
 		HttpEntity entity = null;
-		
+
 		try
 		{
 			//サーバに対してリクエストを送信
@@ -84,7 +84,7 @@ public class HttpSeverIF
 			{
 				log(ie);
 			}
-			
+
 			//クライアントを終了させる
 			client.getConnectionManager().shutdown();
 		}
@@ -95,15 +95,15 @@ public class HttpSeverIF
 	{
 		int iRet = UNKNOWN_HOST;
 		resBitmap = null;
-		
+
 		log(url);
-		
+
 		//引数に記述されたURLに対してGET METHODでのリクエストを送信する。
 		HttpClient client = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(url);
-		
+
 		HttpResponse res = null;
-		
+
 		try
 		{
 			//サーバに対してリクエストを送信
@@ -146,18 +146,18 @@ public class HttpSeverIF
 		}
 		return iRet;
 	}
-	
+
 	private static void log(String strLog)
 	{
 		Log.d(LOG_TAG, strLog);
 	}
-	
+
 	private static void log(Exception e)
 	{
 		Log.d(LOG_TAG, "", e);
 	}
-	
-	
+
+
 
 
 }

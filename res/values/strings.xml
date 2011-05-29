@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">RoomSearch</string>
+    <string name="btnPrev">前</string>
+    <string name="btnNext">次</string>
+    <string name="noRecieve">受信していません。</string>
+    <string name="txtEmpty">データがありません。</string>
+    <string name="dialog_recieving">データ受信中。。。</string>
+    <string name="btnLoad">更新</string>
+    <string name="rate_unit">円</string>
+    <string name="recieve_error">データの受信に失敗しました。</string>
 </resources>
