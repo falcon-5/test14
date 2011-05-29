@@ -15,12 +15,14 @@ public class MainActivity extends ListActivity
 	//じゃらん空室検索リクエストURL
 	private final String REQUEST_URL = "http://jws.jalan.net/APIAdvance/StockSearch/V1/?";
 
-/* パラメータを連想配列で処理したいんだけれども...
+ /*パラメータを連想配列で処理したいんだけれども...
 	private HashMap<String, String> params = new HashMap<String, String>()
 	{
-		put("key",		"lib13022af0158");
-		put("s_area",	"400102");
-	}
+		{
+			put("key",		"lib13022af0158");
+			put("s_area",	"400102");
+		}
+	};
 */
 
 	//じゃらんAPIキー

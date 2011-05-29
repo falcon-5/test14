@@ -93,7 +93,7 @@ public class RoomSearchResultsFactory extends BaseResponseFactory
 
 		if(strTagName.equals("Plan"))
 		{
-			//Plamタグの終了時にリストに追加
+			//Planタグの終了時にリストに追加
 			if(mResults.getPlan() == null)
 			{
 				mResults.setPlan(new ArrayList<Plan>());

@@ -47,7 +47,7 @@ public class Plan
 
 	public void setPlanDetailUrl(String planDetailUrl)
 	{
-		this.planName = planDetailUrl;
+		this.planDetailUrl = planDetailUrl;
 	}
 
 	public String getPlanCommonDetailUrl()

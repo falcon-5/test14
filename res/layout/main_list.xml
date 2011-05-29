@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
   <TextView
+  	android:text="@+id/TextView01"
   	android:layout_width="wrap_content"
   	android:layout_height="wrap_content"
-  	android:text="@+id/TextView01"
   	android:id="@+id/txtPlan"
   	android:layout_alignParentLeft="true"
+	android:textColor="@color/pink"
   	/>
   <TextView
+  	android:text="@+id/TextView02"
   	android:layout_width="wrap_content"
   	android:layout_height="wrap_content"
-  	android:text="@+id/TextView02"
   	android:id="@+id/txtRoom"
   	android:layout_below="@+id/txtPlan"
-  	android:layout_marginRight="10sp"
+	android:textColor="@color/blue"
   	/>
   <TextView
+  	android:text="@+id/TextView03"
   	android:layout_width="wrap_content"
   	android:layout_height="wrap_content"
-  	android:text="@+id/TextView03"
   	android:id="@+id/txtSampleRate"
-  	android:layout_below="@+id/txtPlan"
-  	android:layout_toRightOf="@+id/txtRoom"
+  	android:layout_below="@+id/txtRoom"
+	android:layout_alignParentRight="true"
+	android:textSize="20sp"
+	android:textColor="@color/red"
   	/>
   <TextView
 	android:text="@+id/TextView04"
-	android:layout_height="wrap_content"
 	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
 	android:layout_alignLeft="@+id/TextView03"
 	android:id="@+id/txtHotelName"
 	android:layout_below="@+id/txtSampleRate"
@@ -37,11 +40,11 @@
 	/>
   <TextView
 	android:text="@+id/TextView05"
-	android:layout_height="wrap_content"
 	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
 	android:layout_alignLeft="@+id/TextView04"
 	android:id="@+id/txtAddress"
 	android:layout_below="@+id/txtHotelName"
 	android:layout_alignParentRight="true"
 	/>
-</LinearLayout>
+</RelativeLayout>
