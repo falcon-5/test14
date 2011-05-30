@@ -46,6 +46,7 @@ public final class R {
         public static final int btnPrev=0x7f050001;
         public static final int dialog_recieving=0x7f050005;
         public static final int noRecieve=0x7f050003;
+        public static final int page_view=0x7f050009;
         public static final int rate_unit=0x7f050007;
         public static final int recieve_error=0x7f050008;
         public static final int txtEmpty=0x7f050004;

@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adapter.PlanListAdapter;
@@ -19,12 +20,14 @@ public class RoomSearchTask extends AsyncTask<String, Void, Integer>
 	private Context mContext;
 	private ProgressDialog mDialog;
 	private ListView mList;
+	private TextView mTextPage;
 	private RoomSearchResults mResults;
 
-	public RoomSearchTask(Context context, ListView list)
+	public RoomSearchTask(Context context, ListView list, TextView txtPage)
 	{
 		mContext = context;
 		mList = list;
+		mTextPage = txtPage;
 	}
 
 	@Override
@@ -65,6 +68,7 @@ public class RoomSearchTask extends AsyncTask<String, Void, Integer>
 
 		if(result == HttpStatus.SC_OK)
 		{
+			mTextPage.setText(String.format("%d / %d", mResults.getDisplayFrom(), mResults.getNumberOfResults()));
 			PlanListAdapter adapter = new PlanListAdapter(mContext, mResults.getPlan());
 			mList.setAdapter(adapter);
 		}

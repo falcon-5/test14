@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.async.RoomSearchTask;
 
@@ -56,7 +57,8 @@ public class MainActivity extends ListActivity
     	super.onResume();
 
     	ListView list = (ListView)findViewById(android.R.id.list);
-    	mTask = new RoomSearchTask(MainActivity.this, list);
+    	TextView txtPage = (TextView)findViewById(R.id.txtPage);
+    	mTask = new RoomSearchTask(MainActivity.this, list, txtPage);
     	String request = this.REQUEST_URL + "key=" + this.KEY + "&s_area=" + this.S_AREA;
     	mTask.execute(request);
     }

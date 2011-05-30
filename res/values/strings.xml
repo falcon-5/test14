@@ -9,4 +9,5 @@
     <string name="btnLoad">更新</string>
     <string name="rate_unit">円</string>
     <string name="recieve_error">データの受信に失敗しました。</string>
+    <string name="page_view">件</string>
 </resources>
