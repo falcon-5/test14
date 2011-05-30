@@ -33,6 +33,8 @@ public class MainActivity extends ListActivity
 	private final String S_AREA = "400102";
 
 	private RoomSearchTask mTask;
+	private int mCurrentPage = 0;
+	private int mPageCount = 10;
 
     /** Called when the activity is first created. */
     @Override
@@ -56,11 +58,11 @@ public class MainActivity extends ListActivity
     {
     	super.onResume();
 
+    	mCurrentPage = 1;
     	ListView list = (ListView)findViewById(android.R.id.list);
     	TextView txtPage = (TextView)findViewById(R.id.txtPage);
     	mTask = new RoomSearchTask(MainActivity.this, list, txtPage);
-    	String request = this.REQUEST_URL + "key=" + this.KEY + "&s_area=" + this.S_AREA;
-    	mTask.execute(request);
+    	mTask.execute(getURL());
     }
 
     @Override
@@ -81,11 +83,41 @@ public class MainActivity extends ListActivity
     	switch(id)
     	{
 	    	case R.id.btnPrev:
+	    	{
+	    		mCurrentPage -= mPageCount;
+	    		if(mCurrentPage < 1)
+	    		{
+	    			mCurrentPage = 1;
+	    		}
+	    		ListView list = (ListView)findViewById(android.R.id.list);
+	    		TextView txtPage = (TextView)findViewById(R.id.txtPage);
+	    		mTask = new RoomSearchTask(MainActivity.this, list, txtPage);
+	    		mTask.execute(getURL());
 	    		break;
+	    	}
 	    	case R.id.btnNext:
+	    	{
+	    		if(mTask.getResults() != null)
+	    		{
+	    			mCurrentPage += mPageCount;
+	    			if(mCurrentPage > mTask.getResults().getNumberOfResults())
+	    			{
+	    				mCurrentPage = mTask.getResults().getNumberOfResults() - mPageCount;
+	    			}
+		    		ListView list = (ListView)findViewById(android.R.id.list);
+		    		TextView txtPage = (TextView)findViewById(R.id.txtPage);
+		    		mTask = new RoomSearchTask(MainActivity.this, list, txtPage);
+		    		mTask.execute(getURL());
+	    		}
 	    		break;
+	    	}
 	    	default:
 	    		break;
     	}
+    }
+
+    private String getURL()
+    {
+    	return this.REQUEST_URL + "key=" + this.KEY + "&s_area=" + this.S_AREA + "&start=" + mCurrentPage;
     }
 }

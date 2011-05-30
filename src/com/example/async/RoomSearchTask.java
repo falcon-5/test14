@@ -23,11 +23,17 @@ public class RoomSearchTask extends AsyncTask<String, Void, Integer>
 	private TextView mTextPage;
 	private RoomSearchResults mResults;
 
+	public RoomSearchResults getResults()
+	{
+		return mResults;
+	}
+
 	public RoomSearchTask(Context context, ListView list, TextView txtPage)
 	{
 		mContext = context;
 		mList = list;
 		mTextPage = txtPage;
+		mResults = null;
 	}
 
 	@Override
@@ -68,7 +74,7 @@ public class RoomSearchTask extends AsyncTask<String, Void, Integer>
 
 		if(result == HttpStatus.SC_OK)
 		{
-			mTextPage.setText(String.format("%d / %d", mResults.getDisplayFrom(), mResults.getNumberOfResults()));
+			mTextPage.setText(String.format("%d ～ %d / %d", mResults.getDisplayFrom(), mResults.getDisplayFrom()+9, mResults.getNumberOfResults()));
 			PlanListAdapter adapter = new PlanListAdapter(mContext, mResults.getPlan());
 			mList.setAdapter(adapter);
 		}
